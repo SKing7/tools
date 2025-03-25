@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Demo</title>
+</head>
+<body>
+    <h1>AJAX 请求示例</h1>
+    <div id="result">请求结果将显示在这里</div>
+
+    <script>
+        // 页面加载完成后执行
+        window.onload = function() {
+            // 创建 XMLHttpRequest 对象
+            let xhr = new XMLHttpRequest();
+            
+            // 配置请求
+            xhr.open('GET', 'https://aitogether-deploy.tos-cn-beijing.volces.com/ailesson-infer-english-fe/web/fix-spines/wrapup/bg1/bg1.json', true);
+            
+            // 设置响应处理函数
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) { // 请求完成
+                    if (xhr.status === 200) { // 请求成功
+                        document.getElementById('result').innerHTML = 
+                            '请求成功，返回数据：' + xhr.responseText;
+                    } else {
+                        document.getElementById('result').innerHTML = 
+                            '请求失败，状态码：' + xhr.status;
+                    }
+                }
+            };
+            
+            // 发送请求
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
