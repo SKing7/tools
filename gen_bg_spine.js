@@ -72,6 +72,8 @@ full-ng
 
 // 获取命令行参数
 const args = process.argv.slice(2);
+console.log("args origin:", process.argv);
+console.log("args:", args);
 
 // 创建参数对象
 const params = {
