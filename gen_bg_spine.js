@@ -87,12 +87,15 @@ for (let i = 0; i < args.length; i++) {
         i++;
       }
       break;
+    default:
+      params.image = args[i];
+      break;
   }
 }
 
 // 检查必要参数
 if (params.image === null) {
-  console.error("请提供图片名参数： -f <图片名>");
+  console.error("请提供图片名参数： -i <图片名>");
   process.exit(1);
 }
 
